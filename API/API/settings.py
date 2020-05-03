@@ -24,7 +24,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
-ALLOWED_HOSTS = ['fullthrottleapi.herokuapp.com']
+ALLOWED_HOSTS = ['fullthrottleapiapp.herokuapp.com']
 
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
