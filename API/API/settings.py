@@ -29,9 +29,10 @@ STATICFILES_DIRS = (
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-ALLOWED_HOSTS = ['fullthrottleapi.herokuapp.com']
+ALLOWED_HOSTS = []
 
 SECRET_KEY = config('SECRET_KEY')
+
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Application definition
