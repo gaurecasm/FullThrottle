@@ -1,2 +1,3 @@
-Django>=3.0.0<3.0.5
-djangorestframework<=3.10.3<3.11.0
+-r reuirements-dev.txt
+gunicorn
+psycopg2

@@ -11,22 +11,23 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from decouple import config
+from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1rft0)r^l63o0$c(y)2_3*m-4+(349yq5*9_hcf*=35+by2l4h'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fullthrottleapi.herokuapp.com']
 
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Application definition
 
@@ -78,6 +79,14 @@ WSGI_APPLICATION = 'API.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'djangoapp',
+        'USER': 'root',
+        'PASSWORD': 'baba@2301',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    },
+    'elseDb': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
